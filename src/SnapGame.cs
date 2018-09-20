@@ -28,7 +28,26 @@ namespace CardGames
 			if (SwinGame.KeyTyped (KeyCode.vk_SPACE))
 			{
 				myGame.FlipNextCard ();
-			}
+myGame.Start ();
+}
+if (myGame.IsStarted)
+{
+if ( SwinGame.KeyTyped (KeyCode.vk_LSHIFT) &&
+SwinGame.KeyTyped (KeyCode.vk_RSHIFT))
+{
+//TODO: add sound effects
+}
+else if (SwinGame.KeyTyped (KeyCode.vk_LSHIFT))
+{
+myGame.PlayerHit (0);
+}
+else if (SwinGame.KeyTyped (KeyCode.vk_RSHIFT))
+{
+myGame.PlayerHit (1);
+}
+}
+}
+
 		}
 
 		/// <summary>
@@ -43,9 +62,9 @@ namespace CardGames
 			Card top = myGame.TopCard;
 			if (top != null)
 			{
-  
 
-                               
+
+
                                SwinGame.DrawText ("Top Card is " + top.ToString (),
                                Color.RoyalBlue, "GameFont", 0, 20);
                                SwinGame.DrawText ("Player 1 score: " + myGame.Score(0),
@@ -85,7 +104,7 @@ namespace CardGames
 
 			//Load the card images and set their cell details
             LoadResources();
-            
+
 			// Create the game!
 			Snap myGame = new Snap ();
 
